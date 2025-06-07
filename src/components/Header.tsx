@@ -68,7 +68,7 @@ const Header = () => {
               onClick={() => scrollToSection('investment')}
               className="text-brand-white hover:text-brand-gold transition-colors duration-300 text-sm font-light tracking-wide uppercase"
             >
-              Investment
+              Business
             </button>
             <button 
               onClick={() => scrollToSection('gallery')}
