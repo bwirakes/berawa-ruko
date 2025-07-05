@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
 
 const inter = Inter({
@@ -66,6 +67,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfairDisplay.variable}`}>
       <body className={`${inter.className} antialiased`}>
         {children}
+        <GoogleAnalytics gaId="G-8JDJNTD4Z5" />
       </body>
     </html>
   )

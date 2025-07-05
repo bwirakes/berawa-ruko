@@ -42,7 +42,7 @@ const Location = () => {
       title: "Rice Paddy Restaurants"
     },
     {
-      image: "https://images.pexels.com/photos/1472862/pexels-photo-1472862.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "https://images.pexels.com/photos/4056723/pexels-photo-4056723.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       title: "Yoga Studios"
     },
     {
