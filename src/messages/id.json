@@ -1,0 +1,36 @@
+{
+  "Location": {
+    "title": "Diposisikan untuk Sukses",
+    "subtitle": "Lalu Lintas Pejalan Kaki Tinggi & Kenyamanan Tak Tertandingi",
+    "primeLocation": "Lokasi Utama",
+    "address": "Jl. Pantai Berawa 1053",
+    "area": "Berawa, Canggu, Bali",
+    "whatsAtCanggu": "Ada Apa di Canggu?",
+    "proximity": {
+      "hotels": {
+        "title": "Hotel & Tempat Tinggal Premium",
+        "description": "The Komu, Tui Blue, and Magnum Berawa"
+      },
+      "beachClubs": {
+        "title": "Klub Pantai Terkenal di Dunia",
+        "description": "Finn's Beach Club and Atlas Beach Club"
+      },
+      "beachWalk": {
+        "title": "Jalan Kaki ke Pantai",
+        "description": "Akses langsung ke Pantai Berawa yang masih asli"
+      },
+      "airport": {
+        "title": "Akses Bandara",
+        "description": "Tiga rute alternatif untuk menghindari kemacetan"
+      }
+    },
+    "attractions": {
+      "beachClubs": "Klub Pantai",
+      "ricePaddy": "Restoran Sawah",
+      "yoga": "Studio Yoga",
+      "spas": "Spa & Kesehatan",
+      "surfing": "Selancar & Matahari Terbenam",
+      "coffee": "Kopi Spesialti"
+    }
+  }
+} 

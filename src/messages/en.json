@@ -1,0 +1,36 @@
+{
+  "Location": {
+    "title": "Positioned for Success",
+    "subtitle": "High Foot Traffic & Unmatched Convenience",
+    "primeLocation": "Prime Location",
+    "address": "Jl. Pantai Berawa 1053",
+    "area": "Berawa, Canggu, Bali",
+    "whatsAtCanggu": "What's at Canggu?",
+    "proximity": {
+      "hotels": {
+        "title": "Premium Hotels & Residences",
+        "description": "The Komu, Tui Blue, and Magnum Berawa"
+      },
+      "beachClubs": {
+        "title": "World-Famous Beach Clubs",
+        "description": "Finn's Beach Club and Atlas Beach Club"
+      },
+      "beachWalk": {
+        "title": "Walk to Beach",
+        "description": "Direct access to pristine Berawa Beach"
+      },
+      "airport": {
+        "title": "Airport Access",
+        "description": "Three alternative routes to avoid congestion"
+      }
+    },
+    "attractions": {
+      "beachClubs": "Beach Clubs",
+      "ricePaddy": "Rice Paddy Restaurants",
+      "yoga": "Yoga Studios",
+      "spas": "Spas & Wellness",
+      "surfing": "Surfers & Sunsets",
+      "coffee": "Specialty Coffee"
+    }
+  }
+} 

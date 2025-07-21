@@ -3,43 +3,46 @@
 import React from 'react'
 import Image from 'next/image'
 import { Store, Heart, Users, Scissors, Coffee, Briefcase } from 'lucide-react'
+import { useTranslations } from '@/lib/translations'
 
 const TenantPotential = () => {
+  const t = useTranslations();
+
   const tenantTypes = [
     {
       icon: Store,
-      title: "Boutique Retail Shops",
-      description: "High-end fashion, local crafts, and unique lifestyle products",
+      title: t('TenantPotential.types.retail.title'),
+      description: t('TenantPotential.types.retail.description'),
       image: "https://images.pexels.com/photos/1884584/pexels-photo-1884584.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2"
     },
     {
       icon: Heart,
-      title: "Yoga/Pilates Studio",
-      description: "Wellness and fitness spaces for the health-conscious community",
+      title: t('TenantPotential.types.wellness.title'),
+      description: t('TenantPotential.types.wellness.description'),
       image: "https://images.pexels.com/photos/3822864/pexels-photo-3822864.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2"
     },
     {
       icon: Briefcase,
-      title: "Modern Office Space",
-      description: "Co-working hubs and private offices for digital nomads",
+      title: t('TenantPotential.types.office.title'),
+      description: t('TenantPotential.types.office.description'),
       image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2"
     },
     {
       icon: Users,
-      title: "High-end Beauty Salon",
-      description: "Premium beauty and grooming services for discerning clients",
+      title: t('TenantPotential.types.salon.title'),
+      description: t('TenantPotential.types.salon.description'),
       image: "https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2"
     },
     {
       icon: Scissors,
-      title: "Stylish Barbershop",
-      description: "Contemporary grooming experiences for the modern gentleman",
+      title: t('TenantPotential.types.barber.title'),
+      description: t('TenantPotential.types.barber.description'),
       image: "https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2"
     },
     {
       icon: Coffee,
-      title: "Specialty Coffee Shop",
-      description: "Artisanal coffee culture meeting point for locals and tourists",
+      title: t('TenantPotential.types.cafe.title'),
+      description: t('TenantPotential.types.cafe.description'),
       image: "https://images.pexels.com/photos/2253643/pexels-photo-2253643.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2"
     }
   ];
@@ -56,12 +59,11 @@ const TenantPotential = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-20">
           <h2 className="font-serif text-4xl lg:text-5xl font-light text-brand-forest-green mb-8 leading-tight">
-            A Blank Canvas<br />
-            <span className="font-medium text-brand-gold">for Diverse Businesses</span>
+            {t('TenantPotential.main.title')}<br />
+            <span className="font-medium text-brand-gold">{t('TenantPotential.main.subtitle')}</span>
           </h2>
           <p className="text-lg text-brand-black/75 max-w-2xl mx-auto leading-relaxed font-light">
-            Discover the diverse business opportunities that thrive in Berawa's 
-            vibrant commercial ecosystem
+            {t('TenantPotential.main.description')}
           </p>
         </div>
 
@@ -103,16 +105,16 @@ const TenantPotential = () => {
         {/* Updated CTA with consistent brand styling */}
         <div className="bg-brand-white p-12 text-center border border-brand-gold shadow-sm">
           <h3 className="font-serif text-3xl font-light mb-6 text-brand-forest-green">
-            Ready to Start Your Business Journey?
+            {t('TenantPotential.cta.title')}
           </h3>
           <p className="text-lg mb-8 text-brand-black max-w-md mx-auto font-light">
-            Join the thriving community of successful businesses in Berawa
+            {t('TenantPotential.cta.subtitle')}
           </p>
           <button 
             onClick={() => scrollToSection('contact')}
             className="bg-brand-gold text-brand-white px-12 py-4 text-sm font-medium tracking-wide uppercase hover:bg-brand-maroon transition-all duration-300 transform hover:scale-105 border-2 border-brand-gold hover:border-brand-maroon shadow-lg"
           >
-            Explore Opportunities
+            {t('TenantPotential.cta.button')}
           </button>
         </div>
       </div>

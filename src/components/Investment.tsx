@@ -3,31 +3,34 @@
 import React from 'react'
 import Image from 'next/image'
 import { TrendingUp, Award, Globe, Star } from 'lucide-react'
+import { useTranslations } from '@/lib/translations'
 
 const Investment = () => {
+  const t = useTranslations();
+  
   const accolades = [
     {
       publication: "Forbes",
       year: "2019",
-      title: "World's Top 4 Places to Live & Invest",
+      title: t('Investment.accolades.forbes'),
       logo: "/forbes-logo.png"
     },
     {
       publication: "Time Magazine",
       year: "2020",
-      title: "World's Best Islands",
+      title: t('Investment.accolades.time'),
       logo: "/Time_Magazine_logo.svg.png"
     },
     {
       publication: "DestinAsian",
       year: "2021",
-      title: "Best Island in the World",
+      title: t('Investment.accolades.destinasian'),
       logo: "/destinasian-logo.webp"
     },
     {
       publication: "Lonely Planet",
       year: "2022",
-      title: "Top Tourist Destination",
+      title: t('Investment.accolades.lonelyplanet'),
       logo: "/lonelyplanet.webp"
     }
   ];
@@ -37,8 +40,8 @@ const Investment = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-20">
           <h2 className="font-serif text-4xl lg:text-5xl font-light text-brand-forest-green mb-8 leading-tight">
-            More Than a Location,<br />
-            <span className="font-medium text-brand-gold">It's a Smart Business Decision</span>
+            {t('Investment.title')}<br />
+            <span className="font-medium text-brand-gold">{t('Investment.subtitle')}</span>
           </h2>
         </div>
 
@@ -46,7 +49,7 @@ const Investment = () => {
           <div className="relative">
             <Image 
               src="https://images.pexels.com/photos/2474689/pexels-photo-2474689.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              alt="Canggu lifestyle"
+              alt={t('Investment.imageAlt')}
               width={1260}
               height={945}
               className="w-full aspect-[4/3] object-cover border border-brand-gold"
@@ -61,12 +64,10 @@ const Investment = () => {
                   <TrendingUp className="w-6 h-6 text-brand-gold" />
                 </div>
                 <h3 className="font-light text-brand-forest-green mb-3 text-sm tracking-wide uppercase">
-                  Consistent Growth
+                  {t('Investment.features.growth.title')}
                 </h3>
                 <p className="text-brand-black leading-relaxed font-light">
-                  Canggu's reputation as a "surf-town, laid-back, hipster atmosphere" 
-                  continues to attract high volumes of domestic and international tourists, 
-                  driving steady commercial demand.
+                  {t('Investment.features.growth.description')}
                 </p>
               </div>
 
@@ -75,11 +76,10 @@ const Investment = () => {
                   <Globe className="w-6 h-6 text-brand-gold" />
                 </div>
                 <h3 className="font-light text-brand-forest-green mb-3 text-sm tracking-wide uppercase">
-                  International Recognition
+                  {t('Investment.features.recognition.title')}
                 </h3>
                 <p className="text-brand-black leading-relaxed font-light">
-                  Global publications consistently rank Bali and Canggu among the world's 
-                  top destinations for living, investing, and business opportunities.
+                  {t('Investment.features.recognition.description')}
                 </p>
               </div>
 
@@ -88,11 +88,10 @@ const Investment = () => {
                   <Star className="w-6 h-6 text-brand-gold" />
                 </div>
                 <h3 className="font-light text-brand-forest-green mb-3 text-sm tracking-wide uppercase">
-                  Thriving Community
+                  {t('Investment.features.community.title')}
                 </h3>
                 <p className="text-brand-black leading-relaxed font-light">
-                  A unique blend of local culture and international businesses creates 
-                  an ecosystem perfect for diverse commercial ventures.
+                  {t('Investment.features.community.description')}
                 </p>
               </div>
             </div>
@@ -102,7 +101,7 @@ const Investment = () => {
         {/* Accolades */}
         <div className="bg-brand-white border border-brand-gold p-12 shadow-sm">
           <h3 className="font-light text-brand-forest-green mb-12 text-center text-sm tracking-wide uppercase">
-            World-Class Recognition
+            {t('Investment.accolades.title')}
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

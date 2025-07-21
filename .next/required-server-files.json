@@ -103,7 +103,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/Users/bwirakesuma/Downloads/project 6",
+    "outputFileTracingRoot": "/Users/bwirakesuma/berawa-1053",
     "experimental": {
       "nodeMiddleware": false,
       "cacheLife": {
@@ -286,10 +286,10 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.js",
     "turbopack": {
-      "root": "/Users/bwirakesuma/Downloads/project 6"
+      "root": "/Users/bwirakesuma/berawa-1053"
     }
   },
-  "appDir": "/Users/bwirakesuma/Downloads/project 6",
+  "appDir": "/Users/bwirakesuma/berawa-1053",
   "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",

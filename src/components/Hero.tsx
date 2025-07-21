@@ -3,8 +3,10 @@
 import React from 'react'
 import Image from 'next/image'
 import { ArrowDown } from 'lucide-react'
+import { useTranslations } from '@/lib/translations'
 
 const Hero = () => {
+  const t = useTranslations();
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -33,14 +35,13 @@ const Hero = () => {
             <div className="animate-fade-in">
               {/* Header */}
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-8 leading-tight text-white">
-                Premier Retail Space for Rent<br />
-                <span className="font-medium text-brand-gold">in the Heart of Berawa</span>
+                {t('Hero.title')}<br />
+                <span className="font-medium text-brand-gold">{t('Hero.subtitle')}</span>
               </h1>
               
               {/* Subheader */}
               <h2 className="text-xl lg:text-2xl xl:text-3xl mb-12 max-w-5xl mx-auto leading-relaxed font-light text-white/90">
-                Coming November 2025, An unparalleled rental opportunity for retail, wellness, and office spaces 
-                in Bali's most vibrant neighborhood
+                {t('Hero.description')}
               </h2>
               
               {/* CTA Buttons */}
@@ -49,14 +50,14 @@ const Hero = () => {
                   onClick={() => scrollToSection('contact')}
                   className="bg-brand-gold text-brand-white px-10 py-4 text-sm font-medium tracking-wide uppercase hover:bg-brand-maroon transition-all duration-300 transform hover:scale-105 shadow-lg border-2 border-brand-gold hover:border-brand-maroon"
                 >
-                  Inquire Now
+                  {t('Hero.inquire')}
                 </button>
                 
                 <button 
                   onClick={() => scrollToSection('location')}
                   className="bg-transparent border-2 border-brand-white text-brand-white px-10 py-4 text-sm font-medium tracking-wide uppercase hover:bg-brand-white hover:text-brand-black transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
                 >
-                  Explore Location
+                  {t('Hero.explore')}
                 </button>
               </div>
             </div>

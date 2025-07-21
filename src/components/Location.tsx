@@ -3,59 +3,62 @@
 import React from 'react'
 import Image from 'next/image'
 import { MapPin, Clock, Waves, Car, Coffee, Dumbbell } from 'lucide-react'
+import { useTranslations } from '@/lib/translations'
 
 const Location = () => {
+  const t = useTranslations();
+
   const proximityData = [
     {
       icon: MapPin,
       distance: "100m",
-      title: "Premium Hotels & Residences",
-      description: "The Komu, Tui Blue, and Magnum Berawa"
+      title: t('Location.proximity.hotels.title'),
+      description: t('Location.proximity.hotels.description')
     },
     {
       icon: Waves,
       distance: "500m",
-      title: "World-Famous Beach Clubs",
-      description: "Finn's Beach Club and Atlas Beach Club"
+      title: t('Location.proximity.beachClubs.title'),
+      description: t('Location.proximity.beachClubs.description')
     },
     {
       icon: Clock,
       distance: "15min",
-      title: "Walk to Beach",
-      description: "Direct access to pristine Berawa Beach"
+      title: t('Location.proximity.beachWalk.title'),
+      description: t('Location.proximity.beachWalk.description')
     },
     {
       icon: Car,
       distance: "36-60min",
-      title: "Airport Access",
-      description: "Three alternative routes to avoid congestion"
+      title: t('Location.proximity.airport.title'),
+      description: t('Location.proximity.airport.description')
     }
   ];
 
   const cangguAttractions = [
     {
       image: "https://images.pexels.com/photos/1533720/pexels-photo-1533720.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      title: "Beach Clubs"
+      title: t('Location.attractions.beachClubs')
     },
     {
       image: "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      title: "Rice Paddy Restaurants"
+      title: t('Location.attractions.ricePaddy')
     },
     {
       image: "https://images.pexels.com/photos/4056723/pexels-photo-4056723.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      title: "Yoga Studios"
+      title: t('Location.attractions.yoga')
     },
     {
       image: "https://images.pexels.com/photos/3738673/pexels-photo-3738673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      title: "Spas & Wellness"
+      title: t('Location.attractions.spas')
     },
     {
       image: "https://images.pexels.com/photos/390051/surfer-wave-sunset-the-indian-ocean-390051.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      title: "Surfers & Sunsets"
+      title: t('Location.attractions.surfing')
     },
     {
       image: "https://images.pexels.com/photos/2923034/pexels-photo-2923034.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      title: "Specialty Coffee"
+      title: t('Location.attractions.coffee')
     }
   ];
 
@@ -64,8 +67,8 @@ const Location = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-20">
           <h2 className="font-serif text-4xl lg:text-5xl font-light text-brand-forest-green mb-8 leading-tight">
-            Positioned for Success:<br />
-            <span className="font-medium text-brand-gold">High Foot Traffic & Unmatched Convenience</span>
+            {t('Location.title')}:<br />
+            <span className="font-medium text-brand-gold">{t('Location.subtitle')}</span>
           </h2>
         </div>
 
@@ -73,10 +76,10 @@ const Location = () => {
         <div className="bg-brand-white border border-brand-gold p-8 mb-20 shadow-sm">
           <div className="text-center mb-8">
             <h3 className="font-light text-brand-forest-green mb-4 text-sm tracking-wide uppercase">
-              Prime Location
+              {t('Location.primeLocation')}
             </h3>
-            <p className="text-brand-black mb-2 font-light">Jl. Pantai Berawa 1053</p>
-            <p className="text-brand-black/75 text-sm font-light">Berawa, Canggu, Bali</p>
+            <p className="text-brand-black mb-2 font-light">{t('Location.address')}</p>
+            <p className="text-brand-black/75 text-sm font-light">{t('Location.area')}</p>
           </div>
           
           <div className="w-full h-96 overflow-hidden rounded-sm">
@@ -115,7 +118,7 @@ const Location = () => {
         <div>
           <div className="text-center mb-16">
             <h3 className="font-serif text-3xl font-light text-brand-forest-green mb-6">
-              What's at Canggu?
+              {t('Location.whatsAtCanggu')}
             </h3>
           </div>
           

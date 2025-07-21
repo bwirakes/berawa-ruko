@@ -3,48 +3,50 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { Download, Eye, X } from 'lucide-react'
+import { useTranslations } from '@/lib/translations'
 
 const Gallery = () => {
+  const t = useTranslations();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const floorPlans = [
     {
       size: "135 sqm",
       image: "/first-floor-resto.png",
-      description: "Premium flagship space for high-end retail or restaurants"
+      description: t('Gallery.floorPlans.0.description')
     },
     {
       size: "90 sqm",
       image: "/second-floor-1.png",
-      description: "2nd Floor Exclusive Boutique"
+      description: t('Gallery.floorPlans.1.description')
     },
     {
       size: "100 sqm",
       image: "/first-floor-interior.png",
-      description: "2nd Floor Exclusive Retail"
+      description: t('Gallery.floorPlans.2.description')
     }
   ];
 
   const propertyImages = [
     {
       src: "/main-view.png",
-      title: "Exterior View",
-      description: "Modern architecture with distinctive green roof"
+      title: t('Gallery.propertyImages.0.title'),
+      description: t('Gallery.propertyImages.0.description')
     },
     {
       src: "/berawa-property-2.png",
-      title: "Interior Space",
-      description: "Floor-to-ceiling windows with excellent natural light"
+      title: t('Gallery.propertyImages.1.title'),
+      description: t('Gallery.propertyImages.1.description')
     },
     {
       src: "/premier-floor.png",
-      title: "Premier Floor",
-      description: "Premium commercial space with high-end finishes"
+      title: t('Gallery.propertyImages.2.title'),
+      description: t('Gallery.propertyImages.2.description')
     },
     {
       src: "/second-floor.png",
-      title: "Second Floor",
-      description: "Flexible retail space with excellent visibility"
+      title: t('Gallery.propertyImages.3.title'),
+      description: t('Gallery.propertyImages.3.description')
     }
   ];
 
@@ -53,11 +55,11 @@ const Gallery = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-20">
           <h2 className="font-serif text-4xl lg:text-5xl font-light text-brand-forest-green mb-8 leading-tight">
-            Explore<br />
-            <span className="font-medium text-brand-gold">the Space</span>
+            {t('Gallery.title')}<br />
+            <span className="font-medium text-brand-gold">{t('Gallery.subtitle')}</span>
           </h2>
           <p className="text-lg text-brand-black/75 max-w-2xl mx-auto leading-relaxed font-light">
-            Detailed floor plans and high-resolution renderings of your future commercial space
+            {t('Gallery.description')}
           </p>
         </div>
 
@@ -65,7 +67,7 @@ const Gallery = () => {
         <div className="mb-24">
           <div className="text-center mb-16">
             <h3 className="font-light text-brand-forest-green text-sm tracking-wide uppercase">
-              Available Floor Plans
+              {t('Gallery.floorPlans.title')}
             </h3>
           </div>
           
@@ -75,7 +77,7 @@ const Gallery = () => {
                 <div className="relative group">
                   <Image 
                     src={plan.image}
-                    alt={`Floor plan ${plan.size}`}
+                    alt={`${t('Gallery.floorPlanAlt')} ${plan.size}`}
                     width={800}
                     height={600}
                     className="w-full aspect-[4/3] object-cover cursor-pointer"
@@ -106,7 +108,7 @@ const Gallery = () => {
                     className="border border-brand-gold text-brand-forest-green px-6 py-3 text-xs font-light tracking-wide uppercase hover:bg-brand-gold hover:text-brand-white transition-colors duration-200 flex items-center mx-auto"
                   >
                     <Download className="w-4 h-4 mr-2" />
-                    Download Plan
+                    {t('Gallery.download')}
                   </button>
                 </div>
               </div>
@@ -118,7 +120,7 @@ const Gallery = () => {
         <div>
           <div className="text-center mb-16">
             <h3 className="font-light text-brand-forest-green text-sm tracking-wide uppercase">
-              Property Gallery
+              {t('Gallery.propertyGallery.title')}
             </h3>
           </div>
           
@@ -161,7 +163,7 @@ const Gallery = () => {
               </button>
               <Image 
                 src={selectedImage}
-                alt="Selected view"
+                alt={t('Gallery.modalAlt')}
                 width={1260}
                 height={750}
                 className="max-w-full max-h-full object-contain"

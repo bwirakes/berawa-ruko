@@ -3,8 +3,10 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight, Calendar } from 'lucide-react'
+import { useTranslations } from '@/lib/translations'
 
 const CurrentProgress = () => {
+  const t = useTranslations()
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const progressImages = [
@@ -12,19 +14,19 @@ const CurrentProgress = () => {
       id: 1,
       image: "/WhatsApp Image 2025-07-01 at 08.46.11.jpeg",
       timestamp: "July 1, 2025 - 08:37",
-      description: "Site preparation and material delivery in progress"
+      description: t('CurrentProgress.slides.0.description')
     },
     {
       id: 2,
       image: "/WhatsApp Image 2025-07-01 at 08.46.12 (1).jpeg",
       timestamp: "July 1, 2025 - 08:40",
-      description: "Foundation excavation and concrete work underway"
+      description: t('CurrentProgress.slides.1.description')
     },
     {
       id: 3,
       image: "/WhatsApp Image 2025-07-01 at 08.46.12.jpeg",
       timestamp: "July 1, 2025 - 08:40",
-      description: "Structural framework and column installation"
+      description: t('CurrentProgress.slides.2.description')
     }
   ]
 
@@ -49,10 +51,10 @@ const CurrentProgress = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-20">
           <h2 className="font-serif text-4xl lg:text-5xl font-light text-brand-forest-green mb-8 leading-tight">
-            Current Progress
+            {t('CurrentProgress.title')}
           </h2>
           <p className="text-brand-black/75 text-lg font-light max-w-2xl mx-auto">
-            Stay updated with the latest construction milestones and development progress
+            {t('CurrentProgress.description')}
           </p>
         </div>
 
@@ -68,7 +70,7 @@ const CurrentProgress = () => {
                 <div key={item.id} className="w-full flex-shrink-0 relative">
                   <Image
                     src={item.image}
-                    alt={`Construction progress - ${item.timestamp}`}
+                    alt={`${t('CurrentProgress.altBase')} - ${item.timestamp}`}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
@@ -99,7 +101,7 @@ const CurrentProgress = () => {
           <button
             onClick={prevSlide}
             className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-brand-white/90 hover:bg-brand-white border border-brand-gold/20 hover:border-brand-gold flex items-center justify-center transition-all duration-300 hover:shadow-sm"
-            aria-label="Previous image"
+            aria-label={t('CurrentProgress.prevAria')}
           >
             <ChevronLeft className="w-6 h-6 text-brand-forest-green" />
           </button>
@@ -107,7 +109,7 @@ const CurrentProgress = () => {
           <button
             onClick={nextSlide}
             className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-brand-white/90 hover:bg-brand-white border border-brand-gold/20 hover:border-brand-gold flex items-center justify-center transition-all duration-300 hover:shadow-sm"
-            aria-label="Next image"
+            aria-label={t('CurrentProgress.nextAria')}
           >
             <ChevronRight className="w-6 h-6 text-brand-forest-green" />
           </button>
@@ -124,11 +126,11 @@ const CurrentProgress = () => {
                   ? 'border-brand-gold shadow-sm' 
                   : 'border-brand-gold/20 hover:border-brand-gold/60'
               }`}
-              aria-label={`Go to image ${index + 1}`}
+              aria-label={`${t('CurrentProgress.goToAria')} ${index + 1}`}
             >
               <Image
                 src={item.image}
-                alt={`Thumbnail ${index + 1}`}
+                alt={`${t('CurrentProgress.thumbAria')} ${index + 1}`}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-110"
                 sizes="(max-width: 768px) 80px, 96px"
@@ -151,7 +153,7 @@ const CurrentProgress = () => {
                   ? 'bg-brand-gold' 
                   : 'bg-brand-gold/30 hover:bg-brand-gold/60'
               }`}
-              aria-label={`Go to slide ${index + 1}`}
+              aria-label={`${t('CurrentProgress.goToSlideAria')} ${index + 1}`}
             />
           ))}
         </div>

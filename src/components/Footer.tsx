@@ -1,7 +1,11 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
+import { useTranslations } from '@/lib/translations';
 
 const Footer = () => {
+  const t = useTranslations();
+
   return (
     <footer className="bg-brand-forest-green text-brand-white py-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -20,26 +24,25 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-brand-white/75 mb-6 max-w-md leading-relaxed font-light">
-              Premium commercial spaces in the heart of Berawa, Canggu. 
-              Your gateway to success in Bali's most vibrant business district.
+              {t('Footer.description')}
             </p>
           </div>
           
           <div>
-            <h3 className="font-light text-brand-white mb-6 text-sm tracking-wide uppercase">Quick Links</h3>
+            <h3 className="font-light text-brand-white mb-6 text-sm tracking-wide uppercase">{t('Footer.quickLinks')}</h3>
             <ul className="space-y-3">
-              <li><a href="#opportunity" className="text-brand-white/75 hover:text-brand-gold transition-colors text-sm font-light">The Opportunity</a></li>
-              <li><a href="#location" className="text-brand-white/75 hover:text-brand-gold transition-colors text-sm font-light">Location</a></li>
-              <li><a href="#potential" className="text-brand-white/75 hover:text-brand-gold transition-colors text-sm font-light">Tenant Potential</a></li>
-              <li><a href="#investment" className="text-brand-white/75 hover:text-brand-gold transition-colors text-sm font-light">Investment</a></li>
-              <li><a href="#gallery" className="text-brand-white/75 hover:text-brand-gold transition-colors text-sm font-light">Gallery</a></li>
+              <li><a href="#opportunity" className="text-brand-white/75 hover:text-brand-gold transition-colors text-sm font-light">{t('Header.opportunity')}</a></li>
+              <li><a href="#location" className="text-brand-white/75 hover:text-brand-gold transition-colors text-sm font-light">{t('Header.location')}</a></li>
+              <li><a href="#potential" className="text-brand-white/75 hover:text-brand-gold transition-colors text-sm font-light">{t('Header.potential')}</a></li>
+              <li><a href="#investment" className="text-brand-white/75 hover:text-brand-gold transition-colors text-sm font-light">{t('Header.business')}</a></li>
+              <li><a href="#gallery" className="text-brand-white/75 hover:text-brand-gold transition-colors text-sm font-light">{t('Header.gallery')}</a></li>
             </ul>
           </div>
         </div>
         
         <div className="border-t border-brand-gold/20 mt-8 pt-6 text-center">
           <p className="text-brand-white/50 text-sm font-light">
-            © 2024 Berawa 1053. All rights reserved.
+            © 2024 Berawa 1053. {t('Footer.rights')}
           </p>
         </div>
       </div>

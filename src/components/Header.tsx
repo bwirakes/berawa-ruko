@@ -3,8 +3,11 @@
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Menu, X, Phone } from 'lucide-react'
+import LanguageSwitcher from './LanguageSwitcher'
+import { useTranslations } from '@/lib/translations'
 
 const Header = () => {
+  const t = useTranslations();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -50,50 +53,54 @@ const Header = () => {
               onClick={() => scrollToSection('opportunity')}
               className="text-brand-white hover:text-brand-gold transition-colors duration-300 text-sm font-light tracking-wide uppercase"
             >
-              Opportunity
+              {t('Header.opportunity')}
             </button>
             <button 
               onClick={() => scrollToSection('location')}
               className="text-brand-white hover:text-brand-gold transition-colors duration-300 text-sm font-light tracking-wide uppercase"
             >
-              Location
+              {t('Header.location')}
             </button>
             <button 
               onClick={() => scrollToSection('potential')}
               className="text-brand-white hover:text-brand-gold transition-colors duration-300 text-sm font-light tracking-wide uppercase"
             >
-              Potential
+              {t('Header.potential')}
             </button>
             <button 
               onClick={() => scrollToSection('investment')}
               className="text-brand-white hover:text-brand-gold transition-colors duration-300 text-sm font-light tracking-wide uppercase"
             >
-              Business
+              {t('Header.business')}
             </button>
             <button 
               onClick={() => scrollToSection('gallery')}
               className="text-brand-white hover:text-brand-gold transition-colors duration-300 text-sm font-light tracking-wide uppercase"
             >
-              Gallery
+              {t('Header.gallery')}
             </button>
           </nav>
 
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center space-x-4">
+            <LanguageSwitcher />
             <button 
               onClick={() => scrollToSection('contact')}
               className="bg-brand-black text-brand-white px-8 py-3 text-sm font-light tracking-wide uppercase hover:bg-brand-gold transition-colors duration-300"
             >
-              Contact Us
+              {t('Header.contact')}
             </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="w-6 h-6 text-brand-white" /> : <Menu className="w-6 h-6 text-brand-white" />}
-          </button>
+          <div className="md:hidden flex items-center space-x-4">
+            <LanguageSwitcher />
+            <button
+              className="p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="w-6 h-6 text-brand-white" /> : <Menu className="w-6 h-6 text-brand-white" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -104,37 +111,37 @@ const Header = () => {
                 onClick={() => scrollToSection('opportunity')}
                 className="block px-4 py-3 text-brand-white hover:text-brand-gold w-full text-left text-sm font-light tracking-wide uppercase"
               >
-                Opportunity
+                {t('Header.opportunity')}
               </button>
               <button 
                 onClick={() => scrollToSection('location')}
                 className="block px-4 py-3 text-brand-white hover:text-brand-gold w-full text-left text-sm font-light tracking-wide uppercase"
               >
-                Location
+                {t('Header.location')}
               </button>
               <button 
                 onClick={() => scrollToSection('potential')}
                 className="block px-4 py-3 text-brand-white hover:text-brand-gold w-full text-left text-sm font-light tracking-wide uppercase"
               >
-                Potential
+                {t('Header.potential')}
               </button>
               <button 
                 onClick={() => scrollToSection('investment')}
                 className="block px-4 py-3 text-brand-white hover:text-brand-gold w-full text-left text-sm font-light tracking-wide uppercase"
               >
-                Investment
+                {t('Header.business')}
               </button>
               <button 
                 onClick={() => scrollToSection('gallery')}
                 className="block px-4 py-3 text-brand-white hover:text-brand-gold w-full text-left text-sm font-light tracking-wide uppercase"
               >
-                Gallery
+                {t('Header.gallery')}
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
                 className="block bg-brand-black text-brand-white px-4 py-3 mx-4 mt-4 text-center text-sm font-light tracking-wide uppercase hover:bg-brand-gold"
               >
-                Contact Us
+                {t('Header.contact')}
               </button>
             </div>
           </div>
