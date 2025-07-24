@@ -1,53 +1,47 @@
 /**
- * Google Analytics utility functions
- * Works with @next/third-parties/google GoogleAnalytics component
+ * Google Tag Manager (GTM) utility functions.
+ * This module provides helper functions for tracking events using Google Tag Manager.
+ * It relies on the `<GoogleTagManager />` component from `@next/third-parties/google`.
+ *
+ * @see https://nextjs.org/docs/app/building-your-application/optimizing/third-party-libraries#google-tag-manager
  */
-
-// Extend Window interface to include gtag
-declare global {
-  interface Window {
-    gtag: (
-      command: 'config' | 'event' | 'js' | 'set',
-      targetId: string | Date,
-      config?: Record<string, any>
-    ) => void
-    dataLayer?: Object[]
-  }
-}
-
-export const GA_TRACKING_ID = 'G-8JDJNTD4Z5'
+import { sendGTMEvent } from '@next/third-parties/google'
 
 /**
- * Check if Google Analytics is available
- */
-export const isGAAvailable = (): boolean => {
-  return typeof window !== 'undefined' && typeof window.gtag === 'function'
-}
-
-/**
- * Track custom events
+ * Track custom events using Google Tag Manager's dataLayer.
+ * The event name and parameters should match the triggers and variables
+ * configured in your Google Tag Manager container.
+ *
+ * @param {string} eventName The name of the event to track (e.g., 'button_click').
+ * @param {Record<string, any>} [parameters] Additional data to send with the event.
  */
 export const trackEvent = (
   eventName: string,
   parameters?: Record<string, any>
 ): void => {
-  if (isGAAvailable()) {
-    window.gtag('event', eventName, parameters)
-  }
+  sendGTMEvent({
+    event: eventName,
+    ...parameters,
+  })
 }
 
 /**
- * Track button clicks
+ * Track button clicks.
+ *
+ * @param {string} buttonName A name to identify the button.
+ * @param {string} [location] The location of the button on the page (e.g., 'header', 'footer').
  */
 export const trackButtonClick = (buttonName: string, location?: string): void => {
-  trackEvent('click', {
+  trackEvent('button_click', {
     button_name: buttonName,
     location: location,
   })
 }
 
 /**
- * Track form submissions
+ * Track form submissions.
+ *
+ * @param {string} formName A name to identify the form.
  */
 export const trackFormSubmission = (formName: string): void => {
   trackEvent('form_submit', {
@@ -56,20 +50,39 @@ export const trackFormSubmission = (formName: string): void => {
 }
 
 /**
- * Track contact attempts
+ * Track contact attempts.
+ *
+ * @param {'email' | 'phone' | 'form'} method The method used for contact.
  */
-export const trackContactAttempt = (method: 'email' | 'phone' | 'form'): void => {
+export const trackContactAttempt = (
+  method: 'email' | 'phone' | 'form'
+): void => {
   trackEvent('contact_attempt', {
-    method: method,
+    contact_method: method,
   })
 }
 
 /**
- * Track conversions
+ * Track conversions.
+ * For GTM, conversion tracking is typically handled by configuring conversion tags
+ * that fire on specific trigger events (e.g., a 'purchase' event).
+ * This function sends a generic 'conversion' event which can be used as a trigger.
+ *
+ * @param {string} conversionName A descriptive name for the conversion action.
+ * @param {string} [transactionId] A unique identifier for the transaction.
+ * @param {number} [value] The value of the conversion.
+ * @param {string} [currency] The currency of the value (e.g., 'USD').
  */
-export const trackConversion = (conversionId: string, value?: number): void => {
+export const trackConversion = (
+  conversionName: string,
+  transactionId?: string,
+  value?: number,
+  currency?: string
+): void => {
   trackEvent('conversion', {
-    send_to: conversionId,
+    conversion_name: conversionName,
+    transaction_id: transactionId,
     value: value,
+    currency: currency,
   })
 } 
