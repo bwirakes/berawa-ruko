@@ -1,16 +1,16 @@
 /**
- * Google Tag Manager (GTM) utility functions.
- * This module provides helper functions for tracking events using Google Tag Manager.
- * It relies on the `<GoogleTagManager />` component from `@next/third-parties/google`.
+ * Google Analytics and Google Tag Manager utility functions.
+ * This module provides helper functions for tracking events using both Google Analytics and Google Tag Manager.
+ * It relies on the `<GoogleAnalytics />` and `<GoogleTagManager />` components from `@next/third-parties/google`.
  *
+ * @see https://nextjs.org/docs/app/guides/third-party-libraries#google-analytics
  * @see https://nextjs.org/docs/app/building-your-application/optimizing/third-party-libraries#google-tag-manager
  */
-import { sendGTMEvent } from '@next/third-parties/google'
+import { sendGAEvent, sendGTMEvent } from '@next/third-parties/google'
 
 /**
- * Track custom events using Google Tag Manager's dataLayer.
- * The event name and parameters should match the triggers and variables
- * configured in your Google Tag Manager container.
+ * Track custom events using both Google Analytics and Google Tag Manager.
+ * This ensures maximum compatibility and data collection across both platforms.
  *
  * @param {string} eventName The name of the event to track (e.g., 'button_click').
  * @param {Record<string, any>} [parameters] Additional data to send with the event.
@@ -19,9 +19,13 @@ export const trackEvent = (
   eventName: string,
   parameters?: Record<string, any>
 ): void => {
+  // Send to Google Analytics directly
+  sendGAEvent('event', eventName, parameters || {})
+  
+  // Send to Google Tag Manager dataLayer
   sendGTMEvent({
     event: eventName,
-    ...parameters,
+    ...(parameters || {}),
   })
 }
 

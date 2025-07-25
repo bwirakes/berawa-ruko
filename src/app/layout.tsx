@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
-import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
 
 const inter = Inter({
@@ -67,6 +67,7 @@ export default function RootLayout({
     <html className={`${inter.variable} ${playfairDisplay.variable}`}>
       <body className={`${inter.className} antialiased`}>
         <GoogleTagManager gtmId="GTM-NSR2LHFL" />
+        <GoogleAnalytics gaId="G-8JDJNTD4Z5" />
         {children}
       </body>
     </html>
