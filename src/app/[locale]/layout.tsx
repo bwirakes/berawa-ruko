@@ -1,4 +1,5 @@
 import { TranslationProvider } from '@/lib/translations';
+import WhatsAppFloatingButton from '@/components/WhatsAppFloatingButton'
 
 export default async function LocaleLayout({
   children,
@@ -16,6 +17,7 @@ export default async function LocaleLayout({
         <TranslationProvider locale={locale as 'en' | 'id'}>
           {children}
         </TranslationProvider>
+        <WhatsAppFloatingButton />
       </body>
     </html>
   );

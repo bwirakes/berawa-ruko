@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
+import WhatsAppFloatingButton from '@/components/WhatsAppFloatingButton'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -69,6 +70,7 @@ export default function RootLayout({
         <GoogleTagManager gtmId="GTM-NSR2LHFL" />
         <GoogleAnalytics gaId="G-8JDJNTD4Z5" />
         {children}
+        <WhatsAppFloatingButton />
       </body>
     </html>
   )
