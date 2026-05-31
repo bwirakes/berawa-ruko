@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight, Calendar } from 'lucide-react'
+import { ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react'
 import { useTranslations } from '@/lib/translations'
 
 const CurrentProgress = () => {
@@ -12,20 +12,17 @@ const CurrentProgress = () => {
   const progressImages = [
     {
       id: 1,
-      image: "/WhatsApp Image 2025-07-01 at 08.46.11.jpeg",
-      timestamp: "July 1, 2025 - 08:37",
+      image: "/exterior-wide.webp",
       description: t('CurrentProgress.slides.0.description')
     },
     {
       id: 2,
-      image: "/WhatsApp Image 2025-07-01 at 08.46.12 (1).jpeg",
-      timestamp: "July 1, 2025 - 08:40",
+      image: "/interior-open.webp",
       description: t('CurrentProgress.slides.1.description')
     },
     {
       id: 3,
-      image: "/WhatsApp Image 2025-07-01 at 08.46.12.jpeg",
-      timestamp: "July 1, 2025 - 08:40",
+      image: "/staircase.webp",
       description: t('CurrentProgress.slides.2.description')
     }
   ]
@@ -70,21 +67,21 @@ const CurrentProgress = () => {
                 <div key={item.id} className="w-full flex-shrink-0 relative">
                   <Image
                     src={item.image}
-                    alt={`${t('CurrentProgress.altBase')} - ${item.timestamp}`}
+                    alt={`${t('CurrentProgress.altBase')} — ${item.description}`}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
                     priority={item.id === 1}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-black/60 via-transparent to-transparent" />
-                  
-                  {/* Timestamp Overlay */}
+
+                  {/* Caption Overlay */}
                   <div className="absolute bottom-6 left-6 right-6">
                     <div className="bg-brand-white/95 backdrop-blur-sm border border-brand-gold/20 p-6 max-w-md">
                       <div className="flex items-center mb-3">
-                        <Calendar className="w-5 h-5 text-brand-gold mr-3" />
+                        <CheckCircle2 className="w-5 h-5 text-brand-gold mr-3" />
                         <span className="text-brand-gold font-light text-sm tracking-wide uppercase">
-                          {item.timestamp}
+                          {t('Common.availableNow')}
                         </span>
                       </div>
                       <p className="text-brand-forest-green font-light leading-relaxed">

@@ -112,7 +112,7 @@ const TenantPotential = () => {
           </p>
           <button 
             onClick={() => scrollToSection('contact')}
-            className="bg-brand-gold text-brand-white px-12 py-4 text-sm font-medium tracking-wide uppercase hover:bg-brand-maroon transition-all duration-300 transform hover:scale-105 border-2 border-brand-gold hover:border-brand-maroon shadow-lg"
+            className="bg-brand-gold text-brand-black px-12 py-4 text-sm font-semibold tracking-wide uppercase hover:bg-brand-maroon hover:text-brand-white transition-all duration-300 transform hover:scale-105 border-2 border-brand-gold hover:border-brand-maroon shadow-lg"
           >
             {t('TenantPotential.cta.button')}
           </button>

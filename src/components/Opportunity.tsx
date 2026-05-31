@@ -79,16 +79,17 @@ const Opportunity = () => {
                   <p className="text-brand-black font-light">{t('Opportunity.availableSpaces.unit3')}</p>
                 </div>
               </div>
+              <p className="text-brand-black/70 text-sm font-light">{t('Common.leaseTerms')}</p>
             </div>
           </div>
 
           {/* Right Column - Image */}
           <div className="space-y-12">
             <div className="aspect-[4/5] overflow-hidden border-4 border-brand-gold relative group cursor-pointer"
-                 onClick={() => setSelectedImage("/berawa-property-2.png")}>
-              <Image 
-                src="/berawa-property-2.png"
-                alt="Berawa commercial property"
+                 onClick={() => setSelectedImage("/opportunity-facade.webp")}>
+              <Image
+                src="/opportunity-facade.webp"
+                alt="BERAWA 1053 facade — the signature peaked canopy roof over exposed brick and concrete"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"

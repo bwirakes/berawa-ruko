@@ -95,7 +95,9 @@ const Header = () => {
           <div className="md:hidden flex items-center space-x-4">
             <LanguageSwitcher />
             <button
-              className="p-2"
+              className="p-3 -mr-2"
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMenuOpen}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="w-6 h-6 text-brand-white" /> : <Menu className="w-6 h-6 text-brand-white" />}

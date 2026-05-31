@@ -7,7 +7,7 @@ const Footer = () => {
   const t = useTranslations();
 
   return (
-    <footer className="bg-brand-forest-green text-brand-white py-12">
+    <footer className="bg-brand-forest-green text-brand-white pt-12 pb-28 md:pb-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="col-span-1 md:col-span-2">
@@ -42,7 +42,7 @@ const Footer = () => {
         
         <div className="border-t border-brand-gold/20 mt-8 pt-6 text-center">
           <p className="text-brand-white/50 text-sm font-light">
-            © 2024 Berawa 1053. {t('Footer.rights')}
+            © {new Date().getFullYear()} BERAWA 1053. {t('Footer.rights')}
           </p>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from 'next/font/google'
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
 import WhatsAppFloatingButton from '@/components/WhatsAppFloatingButton'
+import { SITE_URL } from '@/lib/site'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -16,22 +17,44 @@ const playfairDisplay = Playfair_Display({
   display: 'swap',
 })
 
+const title = 'BERAWA 1053 — Premium Commercial Space for Rent in Berawa, Canggu'
+const description =
+  'Move-in ready commercial units (90–135 sqm) for lease in Berawa, Canggu — Bali\'s most in-demand strip. Steps from Finn\'s & Atlas Beach Club and premier hotels. Available now — only 3 units left. Book a viewing.'
+
 export const metadata: Metadata = {
-  title: 'Berawa Commercial Property - Premier Retail Space for Rent',
-  description: 'An unparalleled rental opportunity for retail, wellness, and office spaces in Bali\'s most vibrant neighborhood. Located in the heart of Berawa, Canggu.',
-  keywords: 'Berawa, Canggu, Bali, commercial property, retail space, office space, wellness space, property rental',
-  authors: [{ name: 'Berawa Commercial Property' }],
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: title,
+    template: '%s | BERAWA 1053',
+  },
+  description,
+  keywords: [
+    'Berawa commercial property for rent',
+    'Canggu retail space for rent',
+    'Bali commercial space for lease',
+    'ruko Berawa disewakan',
+    'Canggu shop for rent',
+    'retail space Canggu',
+    'office space Berawa',
+    'restaurant space Canggu',
+    'wellness studio Bali',
+    'BERAWA 1053',
+  ],
+  authors: [{ name: 'BERAWA 1053' }],
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: 'Berawa Commercial Property - Premier Retail Space for Rent',
-    description: 'An unparalleled rental opportunity for retail, wellness, and office spaces in Bali\'s most vibrant neighborhood.',
-    url: 'https://berawa-commercial-property.vercel.app',
-    siteName: 'Berawa Commercial Property',
+    title,
+    description,
+    url: SITE_URL,
+    siteName: 'BERAWA 1053',
     images: [
       {
-        url: 'https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg',
-        width: 1260,
-        height: 750,
-        alt: 'Berawa Commercial Property',
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'BERAWA 1053 — premium commercial building for rent in Berawa, Canggu, Bali',
       },
     ],
     locale: 'en_US',
@@ -39,9 +62,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Berawa Commercial Property - Premier Retail Space for Rent',
-    description: 'An unparalleled rental opportunity for retail, wellness, and office spaces in Bali\'s most vibrant neighborhood.',
-    images: ['https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg'],
+    title,
+    description,
+    images: ['/og-image.jpg'],
+  },
+  icons: {
+    icon: '/Icon_Gold.png',
+    apple: '/Icon_Gold.png',
   },
   robots: {
     index: true,
@@ -54,9 +81,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
 }
 
 export default function RootLayout({
@@ -65,7 +89,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className={`${inter.variable} ${playfairDisplay.variable}`}>
+    <html lang="en" className={`${inter.variable} ${playfairDisplay.variable}`}>
       <body className={`${inter.className} antialiased`}>
         <GoogleTagManager gtmId="GTM-NSR2LHFL" />
         <GoogleAnalytics gaId="G-8JDJNTD4Z5" />
@@ -74,4 +98,4 @@ export default function RootLayout({
       </body>
     </html>
   )
-} 
+}
