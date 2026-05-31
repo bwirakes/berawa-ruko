@@ -12,39 +12,39 @@ const Gallery = () => {
   const floorPlans = [
     {
       size: "135 sqm",
-      image: "/first-floor-resto.png",
+      image: "/interior-open.webp",
       description: t('Gallery.floorPlans.0.description')
     },
     {
       size: "90 sqm",
-      image: "/second-floor-1.png",
+      image: "/interior-floor.webp",
       description: t('Gallery.floorPlans.1.description')
     },
     {
       size: "100 sqm",
-      image: "/first-floor-interior.png",
+      image: "/interior-undercroft.webp",
       description: t('Gallery.floorPlans.2.description')
     }
   ];
 
   const propertyImages = [
     {
-      src: "/main-view.png",
+      src: "/exterior-front.webp",
       title: t('Gallery.propertyImages.0.title'),
       description: t('Gallery.propertyImages.0.description')
     },
     {
-      src: "/berawa-property-2.png",
+      src: "/exterior-angle.webp",
       title: t('Gallery.propertyImages.1.title'),
       description: t('Gallery.propertyImages.1.description')
     },
     {
-      src: "/premier-floor.png",
+      src: "/interior-open.webp",
       title: t('Gallery.propertyImages.2.title'),
       description: t('Gallery.propertyImages.2.description')
     },
     {
-      src: "/second-floor.png",
+      src: "/staircase.webp",
       title: t('Gallery.propertyImages.3.title'),
       description: t('Gallery.propertyImages.3.description')
     }
@@ -105,7 +105,7 @@ const Gallery = () => {
                       link.click();
                       document.body.removeChild(link);
                     }}
-                    className="border border-brand-gold text-brand-forest-green px-6 py-3 text-xs font-light tracking-wide uppercase hover:bg-brand-gold hover:text-brand-white transition-colors duration-200 flex items-center mx-auto"
+                    className="border border-brand-gold text-brand-forest-green px-6 py-3 text-xs font-light tracking-wide uppercase hover:bg-brand-gold hover:text-brand-black transition-colors duration-200 flex items-center mx-auto"
                   >
                     <Download className="w-4 h-4 mr-2" />
                     {t('Gallery.download')}
