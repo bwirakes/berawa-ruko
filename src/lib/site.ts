@@ -1,6 +1,6 @@
 // Central place for site-wide constants used by SEO metadata, JSON-LD,
 // sitemap and robots. Update SITE_URL to your production domain.
-export const SITE_URL = 'https://berawa-commercial-property.vercel.app';
+export const SITE_URL = 'https://www.berawashops.com';
 
 export const PROPERTY = {
   name: 'BERAWA 1053',
