@@ -99,8 +99,8 @@ const Gallery = () => {
                   <button 
                     onClick={() => {
                       const link = document.createElement('a');
-                      link.href = '/BERAWA - COMMERCIAL.pdf';
-                      link.download = `Berawa-Commercial-Floor-Plan-${plan.size}.pdf`;
+                      link.href = '/berawa-1053-brochure.pdf';
+                      link.download = `BERAWA-1053-Brochure-${plan.size}.pdf`;
                       document.body.appendChild(link);
                       link.click();
                       document.body.removeChild(link);
