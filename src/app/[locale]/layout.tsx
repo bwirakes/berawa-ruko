@@ -1,5 +1,12 @@
 import type { Metadata } from 'next';
 import { TranslationProvider } from '@/lib/translations';
+import { notFound } from 'next/navigation';
+
+const supportedLocales = ['en', 'id'] as const;
+
+export function generateStaticParams() {
+  return supportedLocales.map((locale) => ({ locale }));
+}
 
 const meta = {
   en: {
@@ -20,6 +27,9 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  if (!supportedLocales.includes(locale as (typeof supportedLocales)[number])) {
+    notFound();
+  }
   const m = meta[locale as 'en' | 'id'] ?? meta.en;
   return {
     title: { absolute: m.title },
@@ -49,6 +59,9 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  if (!supportedLocales.includes(locale as (typeof supportedLocales)[number])) {
+    notFound();
+  }
 
   return (
     <TranslationProvider locale={locale as 'en' | 'id'}>

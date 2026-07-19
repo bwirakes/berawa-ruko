@@ -1,10 +1,12 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import { useTranslations } from '@/lib/translations';
+import Link from 'next/link';
+import { useLocale, useTranslations } from '@/lib/translations';
 
 const Footer = () => {
   const t = useTranslations();
+  const locale = useLocale();
 
   return (
     <footer className="bg-brand-forest-green text-brand-white pt-12 pb-28 md:pb-12">
@@ -36,6 +38,8 @@ const Footer = () => {
               <li><a href="#potential" className="text-brand-white/75 hover:text-brand-gold transition-colors text-sm font-light">{t('Header.potential')}</a></li>
               <li><a href="#investment" className="text-brand-white/75 hover:text-brand-gold transition-colors text-sm font-light">{t('Header.business')}</a></li>
               <li><a href="#gallery" className="text-brand-white/75 hover:text-brand-gold transition-colors text-sm font-light">{t('Header.gallery')}</a></li>
+              <li><Link href={`/${locale}/land`} className="text-brand-gold hover:text-brand-white transition-colors text-sm font-medium">{locale === 'id' ? 'Sewa Lahan 25 Are' : '25-Are Land Lease'}</Link></li>
+              <li><Link href={`/${locale}/blog`} className="text-brand-white/75 hover:text-brand-gold transition-colors text-sm font-light">{locale === 'id' ? 'Catatan Pasar' : 'Market Notes'}</Link></li>
             </ul>
           </div>
         </div>

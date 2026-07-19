@@ -1,5 +1,8 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const WHATSAPP_NUMBER = '6281385828138'
 const DEFAULT_MESSAGE = "I'm interested in the Berawa commercial property"
@@ -10,6 +13,9 @@ function buildWhatsAppHref(number: string, message: string): string {
 }
 
 export function WhatsAppFloatingButton() {
+  const pathname = usePathname()
+  if (/\/(land|blog)(\/|$)/.test(pathname)) return null
+
   const href = buildWhatsAppHref(WHATSAPP_NUMBER, DEFAULT_MESSAGE)
 
   return (
@@ -34,5 +40,4 @@ export function WhatsAppFloatingButton() {
 }
 
 export default WhatsAppFloatingButton
-
 

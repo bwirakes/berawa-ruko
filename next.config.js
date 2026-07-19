@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      { source: '/land', destination: '/en/land', permanent: true },
+      { source: '/blog', destination: '/en/blog', permanent: true },
+      { source: '/blog/:slug', destination: '/en/blog/:slug', permanent: true },
+    ];
+  },
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
@@ -23,4 +30,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig; 
+module.exports = nextConfig;

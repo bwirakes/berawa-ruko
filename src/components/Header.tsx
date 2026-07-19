@@ -2,12 +2,14 @@
 
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Menu, X, Phone } from 'lucide-react'
 import LanguageSwitcher from './LanguageSwitcher'
-import { useTranslations } from '@/lib/translations'
+import { useLocale, useTranslations } from '@/lib/translations'
 
 const Header = () => {
   const t = useTranslations();
+  const locale = useLocale();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -48,7 +50,7 @@ const Header = () => {
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-12">
+          <nav className="hidden xl:flex space-x-8">
             <button 
               onClick={() => scrollToSection('opportunity')}
               className="text-brand-white hover:text-brand-gold transition-colors duration-300 text-sm font-light tracking-wide uppercase"
@@ -79,9 +81,15 @@ const Header = () => {
             >
               {t('Header.gallery')}
             </button>
+            <Link
+              href={`/${locale}/land`}
+              className="text-brand-gold hover:text-brand-white transition-colors duration-300 text-sm font-medium tracking-wide uppercase"
+            >
+              {locale === 'id' ? 'Lahan 25 Are' : '25-Are Land'}
+            </Link>
           </nav>
 
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden xl:flex items-center space-x-4">
             <LanguageSwitcher />
             <button 
               onClick={() => scrollToSection('contact')}
@@ -92,7 +100,7 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-4">
+          <div className="xl:hidden flex items-center space-x-4">
             <LanguageSwitcher />
             <button
               className="p-3 -mr-2"
@@ -107,7 +115,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-brand-forest-green/95 backdrop-blur-md border-t border-brand-gold/20">
+          <div className="xl:hidden bg-brand-forest-green/95 backdrop-blur-md border-t border-brand-gold/20">
             <div className="px-2 pt-2 pb-6 space-y-1">
               <button 
                 onClick={() => scrollToSection('opportunity')}
@@ -139,6 +147,13 @@ const Header = () => {
               >
                 {t('Header.gallery')}
               </button>
+              <Link
+                href={`/${locale}/land`}
+                className="block px-4 py-3 text-brand-gold hover:text-brand-white w-full text-left text-sm font-medium tracking-wide uppercase"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {locale === 'id' ? 'Lahan 25 Are' : '25-Are Land'}
+              </Link>
               <button 
                 onClick={() => scrollToSection('contact')}
                 className="block bg-brand-black text-brand-white px-4 py-3 mx-4 mt-4 text-center text-sm font-light tracking-wide uppercase hover:bg-brand-gold"
