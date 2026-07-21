@@ -35,10 +35,24 @@ export default function LandHeader({ locale, labels, sectionBase = '' }: { local
 
   return (
     <header className={styles.header}>
+      <aside className={styles.contextBar} aria-label={locale === 'id' ? 'Konteks halaman lahan' : 'Land page context'}>
+        <div className={`${styles.wrap} ${styles.contextWrap}`}>
+          <p className={styles.contextCopy}>
+            <strong>{locale === 'id' ? 'Lahan komersial' : 'Commercial land'}</strong>
+            <span className={styles.contextCopyDesktop}>{locale === 'id' ? '2.500 m² di sebelah · masa sewa 30 tahun' : '2,500 m² next door · 30-year lease'}</span>
+            <span className={styles.contextCopyMobile}>{locale === 'id' ? 'Lahan 2.500 m² · 30 tahun' : '2,500 m² land · 30 years'}</span>
+          </p>
+          <Link className={styles.contextLink} href={`/${locale}`}>
+            <span className={styles.contextLinkDesktop}>{locale === 'id' ? 'Lihat ruko' : 'View the shops'}</span>
+            <span className={styles.contextLinkMobile}>{locale === 'id' ? 'Ruko' : 'Shops'}</span>
+            <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+      </aside>
       <nav className={`${styles.wrap} ${styles.nav}`} aria-label={locale === 'id' ? 'Navigasi utama' : 'Primary navigation'}>
         <Link className={styles.brand} href={`/${locale}/land`} aria-label="BERAWA 1053 land lease">
-          <Image src="/Icon_Gold.png" alt="" width={56} height={40} className={styles.brandLogo} />
-          <span className={styles.brandText}>BERAWA 1053<small>{locale === 'id' ? 'Lahan 25 are' : '25-are land'}</small></span>
+          <Image src="/Icon_Gold.png" alt="" width={64} height={64} className={styles.brandLogo} />
+          <span className={styles.brandText}>BERAWA 1053</span>
         </Link>
         <div className={styles.desktopNav}>
           {items.map(([href, label]) => <a key={href} href={href}>{label}</a>)}
