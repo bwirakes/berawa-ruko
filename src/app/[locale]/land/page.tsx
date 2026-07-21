@@ -40,13 +40,13 @@ export default async function LandPage({ params }: { params: Promise<{ locale: s
   const factIcons = [Ruler, CalendarRange, MapPin, CircleDotDashed]
   const termIcons = [CalendarRange, LandPlot, HandCoins, FolderKey]
   const plotOptions = locale === 'id' ? [
-    { label: '4 bidang', sizes: ['6', '6', '6', '6'], reserve: '1 are untuk akses / servis bersama', note: 'Empat bidang yang lebih besar untuk operator utama.' },
-    { label: '5 bidang', sizes: ['5', '5', '5', '5', '5'], reserve: '25 are terbagi rata', note: 'Ukuran seimbang untuk campuran penyewa.' },
-    { label: '6 bidang', sizes: ['4', '4', '4', '4', '4', '5'], reserve: 'Total 25 are', note: 'Lebih banyak bidang dengan titik masuk lebih kecil.' },
+    { label: '4 bidang', sizes: ['7', '6', '6', '6'], widths: [26.90, 23.70, 24.35, 25.05], reserve: 'Tiga bidang 6 are; bidang barat menerima sisa 7 are.', note: 'Empat bidang · target 6 are.' },
+    { label: '5 bidang', sizes: ['5', '5', '5', '5', '5'], widths: [19.14, 19.54, 19.97, 20.43, 20.92], reserve: 'Lima bidang 5 are membagi seluruh 25 are.', note: 'Lima bidang · target 5 are.' },
+    { label: '6 bidang', sizes: ['5', '4', '4', '4', '4', '4'], widths: [19.14, 15.60, 15.87, 16.16, 16.46, 16.78], reserve: 'Lima bidang 4 are; bidang barat menerima sisa 5 are.', note: 'Enam bidang · target 4 are.' },
   ] : [
-    { label: '4 plots', sizes: ['6', '6', '6', '6'], reserve: '1 are held for shared access / services', note: 'Four larger plots for anchor operators.' },
-    { label: '5 plots', sizes: ['5', '5', '5', '5', '5'], reserve: '25 are divided evenly', note: 'Balanced sizes for a mixed tenant line-up.' },
-    { label: '6 plots', sizes: ['4', '4', '4', '4', '4', '5'], reserve: '25 are in total', note: 'More plots with a smaller entry size.' },
+    { label: '4 plots', sizes: ['7', '6', '6', '6'], widths: [26.90, 23.70, 24.35, 25.05], reserve: 'Three 6-are plots; the western plot takes the 7-are remainder.', note: 'Four plots · 6-are target.' },
+    { label: '5 plots', sizes: ['5', '5', '5', '5', '5'], widths: [19.14, 19.54, 19.97, 20.43, 20.92], reserve: 'Five 5-are plots divide the full 25 are.', note: 'Five plots · 5-are target.' },
+    { label: '6 plots', sizes: ['5', '4', '4', '4', '4', '4'], widths: [19.14, 15.60, 15.87, 16.16, 16.46, 16.78], reserve: 'Five 4-are plots; the western plot takes the 5-are remainder.', note: 'Six plots · 4-are target.' },
   ]
   const nearby = locale === 'id' ? [
     { name: 'Mosto', meta: 'Jl. Pantai Berawa No. 8 · di sebelah lokasi', href: 'https://mostobali.com/', image: '/land/businesses/mosto.webp' },
@@ -107,9 +107,9 @@ export default async function LandPage({ params }: { params: Promise<{ locale: s
 
         <section className={`${styles.section} ${styles.plotSection}`} id="possibilities">
           <div className={styles.wrap}>
-            <div className={styles.sectionHead}><span className={styles.utility}>{locale === 'id' ? 'Pilihan pembagian' : 'Plot options'}</span><div><h2 className={`${styles.sectionTitle} ${styles.display}`}>{locale === 'id' ? 'Pilih bidang 4 sampai 6 are.' : 'Choose plots from 4 to 6 are.'}</h2><p className={styles.sectionIntro}>{locale === 'id' ? 'Tiga skenario awal untuk menyewa sebagian atau seluruh lahan.' : 'Three starting layouts for leasing part or all of the land.'}</p></div></div>
-            <div className={styles.plotGrid}>{plotOptions.map((option) => <article className={styles.plotCard} key={option.label}><span className={styles.utility}>{option.label}</span><div className={styles.plotDiagram}>{option.sizes.map((size, index) => <span key={`${size}-${index}`}><strong>{size}</strong><small>are</small></span>)}</div><h3>{option.note}</h3><p>{option.reserve}</p></article>)}</div>
-            <p className={styles.planNote}>{locale === 'id' ? 'Konsep awal saja. Ukuran akhir, jalur akses, sempadan dan utilitas harus mengikuti survei serta persetujuan pemilik.' : 'Planning concepts only. Final areas, access, setbacks and services depend on survey and owner approval.'}</p>
+            <div className={styles.sectionHead}><span className={styles.utility}>{locale === 'id' ? 'Pilihan pembagian' : 'Plot options'}</span><div><h2 className={`${styles.sectionTitle} ${styles.display}`}>{locale === 'id' ? 'Pilih target bidang 4, 5 atau 6 are.' : 'Choose a 4, 5 or 6-are target.'}</h2><p className={styles.sectionIntro}>{locale === 'id' ? 'Bidang barat tanpa jalan menerima sisa luas dari total 25 are.' : 'The road-free western plot takes the remainder from the 25-are total.'}</p></div></div>
+            <div className={styles.plotGrid}>{plotOptions.map((option) => <article className={styles.plotCard} key={option.label}><span className={styles.utility}>{option.label}</span><div className={styles.plotDiagram} style={{ gridTemplateColumns: option.widths.map((width) => `${width}fr`).join(' ') }}><span className={styles.plotFull}><strong>{option.sizes[0]}</strong><small>are</small></span><div className={styles.plotRoad}><span>{locale === 'id' ? 'Utara · usulan jalan 3 m' : 'North · proposed 3 m road'}</span></div><div className={styles.plotCells}>{option.sizes.slice(1).map((size, index) => <span key={`${size}-${index + 1}`} style={{ flexGrow: option.widths[index + 1] }}><strong>{size}</strong><small>are</small></span>)}</div></div><h3>{option.note}</h3><p>{option.reserve}</p></article>)}</div>
+            <p className={styles.planNote}>{locale === 'id' ? 'Luas bidang adalah pembagian bruto dari total 25 are. Lebar relatif mengikuti bentuk garis Google satelit. Luas jalan, batas legal dan luas bersih harus dikonfirmasi melalui survei kadastral sebelum kontrak.' : 'Plot labels are gross divisions of the 25-are total. Relative widths follow the traced Google satellite outline. Road area, legal boundaries and net areas require cadastral survey before contract.'}</p>
           </div>
         </section>
 
@@ -119,9 +119,11 @@ export default async function LandPage({ params }: { params: Promise<{ locale: s
             <figure className={styles.mapFigure} aria-describedby="site-map-caption">
               <div className={styles.mapImageWrap}>
                 <Image src="/land/berawa-25-satellite.png" alt={locale === 'id' ? 'Peta satelit Berawa dengan area sekitar 25 are yang ditandai secara indikatif di sebelah barat Jalan Pantai Berawa' : 'Satellite map of Berawa with an approximately 25-are area highlighted west of Jalan Pantai Berawa for indicative location only'} fill sizes="(max-width: 768px) 100vw, 1280px" />
+                <div className={styles.northRoadMap} aria-hidden="true" />
+                <div className={styles.northRoadLabel}>{locale === 'id' ? 'Usulan jalan 3 m · utara' : 'Proposed 3 m road · north'}</div>
                 <div className={styles.siteMarker}><MapPin aria-hidden="true" /><span><strong>{c.mapSiteLabel}</strong><small>{c.mapSiteMeta}</small></span></div>
               </div>
-              <figcaption id="site-map-caption" className={styles.mapCaption}><LandPlot aria-hidden="true" /><span>{c.parcelDisclaimer} <em>Map imagery © Google.</em></span></figcaption>
+              <figcaption id="site-map-caption" className={styles.mapCaption}><LandPlot aria-hidden="true" /><span>{c.parcelDisclaimer} {locale === 'id' ? 'Jalan 3 m adalah konsep akses di sisi utara, bukan bukti hak jalan atau ukuran legal.' : 'The 3 m road is a north-edge access concept, not evidence of a legal right of way or surveyed width.'} <em>Map imagery © Google.</em></span></figcaption>
             </figure>
           </div>
         </section>
