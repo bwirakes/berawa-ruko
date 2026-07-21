@@ -39,10 +39,10 @@ const Header = () => {
         className="border-b border-brand-gold/30 bg-brand-black text-brand-white"
         aria-label={locale === 'id' ? 'Pengumuman lahan tersedia' : 'Land availability announcement'}
       >
-        <div className="max-w-7xl mx-auto min-h-11 px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
+        <div className="max-w-7xl mx-auto min-h-11 px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-3">
           <p className="min-w-0 text-[11px] sm:text-xs lg:text-sm leading-tight tracking-wide">
             <span className="sm:hidden">
-              {locale === 'id' ? 'Lahan juga tersedia · 25 are' : 'Land also available · 25 are'}
+              {locale === 'id' ? 'Lahan 2.500 m² tersedia' : '2,500 m² land available'}
             </span>
             <span className="hidden sm:inline">
               <strong className="mr-3 text-brand-gold text-[10px] font-semibold tracking-[0.18em] uppercase">
@@ -50,8 +50,8 @@ const Header = () => {
               </strong>
               <span className="text-brand-white/90">
                 {locale === 'id'
-                  ? 'Lahan 25 are di sebelah tersedia dengan masa sewa 30 tahun.'
-                  : '25 are next door, available on a 30-year lease.'}
+                  ? 'Lahan 2.500 m² di sebelah · masa sewa 30 tahun.'
+                  : '2,500 m² next door · available on a 30-year lease.'}
               </span>
             </span>
           </p>
@@ -60,23 +60,23 @@ const Header = () => {
             onClick={() => trackButtonClick('land_announcement', 'header')}
             className="group inline-flex min-h-11 shrink-0 items-center px-1 text-[10px] sm:text-xs font-semibold tracking-[0.14em] uppercase text-brand-gold hover:text-brand-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2 focus-visible:ring-offset-brand-black"
           >
-            <span className="sm:hidden">{locale === 'id' ? 'Lihat' : 'View'}</span>
+            <span className="sm:hidden">{locale === 'id' ? 'Lihat lahan' : 'View land'}</span>
             <span className="hidden sm:inline">{locale === 'id' ? 'Lihat lahan' : 'Explore the land'}</span>
             <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
           </Link>
         </div>
       </aside>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex justify-between items-center py-6">
-          <div className="flex items-center space-x-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex min-w-0 justify-between items-center py-5 sm:py-6">
+          <div className="flex min-w-0 shrink items-center gap-2 sm:gap-3">
             <Image 
               src="/Icon_Gold.png" 
               alt="Berawa 1053 Logo" 
               width={64}
               height={64}
-              className="object-contain"
+              className="h-11 w-11 shrink-0 object-contain sm:h-16 sm:w-16"
             />
-            <div className="font-serif text-2xl font-medium tracking-tight text-brand-gold">
+            <div className="whitespace-nowrap font-serif text-base font-medium tracking-tight text-brand-gold sm:text-2xl">
               BERAWA 1053
             </div>
           </div>
@@ -132,10 +132,10 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="xl:hidden flex items-center space-x-4">
+          <div className="xl:hidden ml-2 flex shrink-0 items-center gap-1 sm:gap-4">
             <LanguageSwitcher />
             <button
-              className="p-3 -mr-2"
+              className="p-2 sm:p-3 sm:-mr-2"
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isMenuOpen}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
