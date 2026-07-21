@@ -3,9 +3,10 @@
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Menu, X, Phone } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import LanguageSwitcher from './LanguageSwitcher'
 import { useLocale, useTranslations } from '@/lib/translations'
+import { trackButtonClick } from '@/lib/analytics'
 
 const Header = () => {
   const t = useTranslations();
@@ -34,6 +35,37 @@ const Header = () => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled ? 'bg-brand-forest-green/95 backdrop-blur-md shadow-sm border-b border-brand-gold/20' : 'bg-brand-forest-green'
     }`}>
+      <aside
+        className="border-b border-brand-gold/30 bg-brand-black text-brand-white"
+        aria-label={locale === 'id' ? 'Pengumuman lahan tersedia' : 'Land availability announcement'}
+      >
+        <div className="max-w-7xl mx-auto min-h-11 px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
+          <p className="min-w-0 text-[11px] sm:text-xs lg:text-sm leading-tight tracking-wide">
+            <span className="sm:hidden">
+              {locale === 'id' ? 'Lahan juga tersedia · 25 are' : 'Land also available · 25 are'}
+            </span>
+            <span className="hidden sm:inline">
+              <strong className="mr-3 text-brand-gold text-[10px] font-semibold tracking-[0.18em] uppercase">
+                {locale === 'id' ? 'Lahan juga tersedia' : 'Land also available'}
+              </strong>
+              <span className="text-brand-white/90">
+                {locale === 'id'
+                  ? 'Lahan 25 are di sebelah tersedia dengan masa sewa 30 tahun.'
+                  : '25 are next door, available on a 30-year lease.'}
+              </span>
+            </span>
+          </p>
+          <Link
+            href={`/${locale}/land`}
+            onClick={() => trackButtonClick('land_announcement', 'header')}
+            className="group inline-flex min-h-11 shrink-0 items-center px-1 text-[10px] sm:text-xs font-semibold tracking-[0.14em] uppercase text-brand-gold hover:text-brand-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2 focus-visible:ring-offset-brand-black"
+          >
+            <span className="sm:hidden">{locale === 'id' ? 'Lihat' : 'View'}</span>
+            <span className="hidden sm:inline">{locale === 'id' ? 'Lihat lahan' : 'Explore the land'}</span>
+            <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
+          </Link>
+        </div>
+      </aside>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center py-6">
           <div className="flex items-center space-x-3">
