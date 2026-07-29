@@ -4,6 +4,7 @@ import Link from 'next/link'
 import {
   CalendarRange,
   CircleDotDashed,
+  Download,
   FileText,
   FolderKey,
   HandCoins,
@@ -93,7 +94,14 @@ export default async function LandPage({ params }: { params: Promise<{ locale: s
             <div className={styles.heroBottom}>
               <p className={styles.heroCopy}>{c.hero}</p>
               <div className={styles.heroActions}>
-                <a className={`${styles.button} ${styles.primaryButton}`} href="#enquire">{c.primary}</a>
+                <a
+                  className={`${styles.button} ${styles.primaryButton}`}
+                  href="/berawa-25-land-lease-brochure.pdf"
+                  download="BERAWA-25-Land-Lease-Brochure.pdf"
+                >
+                  <Download aria-hidden="true" />
+                  {c.primary}
+                </a>
                 <a className={`${styles.button} ${styles.ghostButton}`} href="#possibilities">{c.explore} ↓</a>
               </div>
             </div>
