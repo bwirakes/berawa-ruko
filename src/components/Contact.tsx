@@ -2,10 +2,7 @@
 import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { useTranslations } from '@/lib/translations';
-
-const WHATSAPP_HREF =
-  'https://wa.me/6281385828138?text=' +
-  encodeURIComponent("Hi, I'm interested in leasing a unit at Berawa 1053. Could you share the rates and availability?");
+import LeadForm from '@/components/LeadForm';
 
 const Contact = () => {
   const t = useTranslations();
@@ -93,15 +90,9 @@ const Contact = () => {
                 {t('Contact.directContact.description')}
               </p>
               
-              <a
-                href={WHATSAPP_HREF}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full bg-brand-gold text-brand-black py-4 px-6 text-sm font-semibold tracking-wide uppercase flex items-center justify-center hover:bg-brand-maroon hover:text-brand-white transition-all duration-300 mb-4 border-2 border-brand-gold hover:border-brand-maroon transform hover:scale-105"
-              >
-                <Phone className="w-4 h-4 mr-3" />
-                {t('Contact.directContact.button')}
-              </a>
+              <div className="mb-6">
+                <LeadForm />
+              </div>
 
               <p className="text-brand-black/70 text-sm font-light mb-8 leading-relaxed">
                 {t('Contact.replyNote')}

@@ -37,7 +37,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-brand-black/70 via-brand-black/45 to-brand-black/55"></div>
 
         {/* Centered content — grows with content instead of overflowing */}
-        <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 lg:px-8 pt-28 pb-16 text-center text-white [text-shadow:_0_2px_16px_rgba(0,0,0,0.45)]">
+        <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 lg:px-8 pt-40 pb-16 text-center text-white [text-shadow:_0_2px_16px_rgba(0,0,0,0.45)]">
           <div className="max-w-5xl mx-auto animate-fade-in">
             {/* Availability badge */}
             <div className="flex justify-center mb-5 sm:mb-6">
